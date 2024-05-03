@@ -1,0 +1,33 @@
+@import '../../style/vars.less';
+
+.blog-heading {
+  font-size: 28px;
+}
+
+.blog-creator {
+  font-size: 14px;
+  color: @gray;
+  margin-bottom: 20px;
+  img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
+.blog-container {
+  height: 80vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-attachment: fixed;
+  .content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(154, 154, 154, .8);
+    padding: 5px;
+  }
+}

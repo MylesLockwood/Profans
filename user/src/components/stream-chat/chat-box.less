@@ -1,0 +1,39 @@
+@import '../../../style/vars.less';
+
+.conversation-stream {
+  width: 100%;
+  min-height: 540px;
+  border: solid 1px @primary-color;
+  border-radius: 5px;
+  position: relative;
+  .tablist {
+    margin: 0;
+  }
+  .ant-tabs > .ant-tabs-nav, .ant-tabs > div > .ant-tabs-nav {
+    margin: 0 !important;
+  }
+  .ant-tabs-nav-list {
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    overflow: hidden;
+    .ant-tabs-tab {
+      width: 50%;
+      justify-content: center;
+      margin: 0;
+      height: 50px;
+    }
+    .ant-tabs-tab-active {
+      background-color: @primary-color;
+      color: @white;
+      .ant-tabs-tab-btn {
+        color: @white;
+      }
+    }
+  }
+  &.active {
+    .ant-tabs-tab {
+      width: 100%;
+    }
+  }
+}

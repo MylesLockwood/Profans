@@ -1,0 +1,158 @@
+@import '../../../style/vars.less';
+
+.f-upload-list {
+  display: flex;
+  width: 100%;
+  overflow: auto;
+  flex-wrap: wrap;
+
+  .f-upload-item {
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 5px;
+    margin: 5px;
+    background-color: @light-blue;
+    position: relative;
+
+    .f-remove {
+      position: absolute;
+      right: 5px;
+      top: 5px
+    }
+
+    .f-upload-thumb {
+      height: 100px;
+      width: 120px;
+
+      .f-thumb-vid {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: @white;
+
+        .anticon {
+          color: @theme-color;
+          font-size: 22px;
+        }
+      }
+    }
+
+    .f-upload-name {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 120px;
+    }
+
+    .f-upload-size {
+      font-size: 8px;
+    }
+  }
+
+  .add-more {
+    display: flex;
+    height: 130px;
+    align-self: center;
+    justify-content: center;
+    width: 65px;
+    background-color: @light-grey;
+    border-radius: 5px;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    cursor: pointer;
+
+    .ant-upload {
+      height: 130px;
+      width: 65px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .anticon.anticon-plus {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.feed-form {
+  .feed-input {
+    &:focus {
+      background-color: @light-blue;
+    }
+  }
+
+  .ant-input-number-input-wrap input {
+    height: 30px;
+  }
+}
+
+.poll-form {
+  width: 100%;
+  max-width: 320px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: @light-blue;
+  margin: 10px 0;
+  .poll-top {
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+      cursor: pointer;
+
+      &:hover {
+        color: @primary-color;
+      }
+    }
+
+    a {
+      color: @white;
+      padding: 1px 7px;
+      border-radius: 50%;
+      background-color: @theme-color;
+    }
+  }
+
+  .poll-input {
+    margin-bottom: 10px;
+  }
+}
+
+.feed-poll {
+  display: flex;
+  background-color: @aliceblue;
+  padding: 5px;
+  border-radius: 3px;
+  justify-content: space-between;
+  cursor: pointer;
+  margin: 3px 0;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.total-vote {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 10px;
+  color: @gray;
+}
+
+.submit-btns {
+  justify-content: space-around;
+  margin: 10px auto;
+  width: 200px;
+  display: flex;
+}

@@ -1,0 +1,17 @@
+<p>Hi {{user.username}}, </p>
+<p>Your payment has been successfully.</p>
+<p>Order number: {{order.orderNumber}}</p>
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Description</th>
+    <th>Price</th>
+  </tr>
+  {{#orderDetails}}
+  <tr>
+    <td>{{name}}</td>
+    <td>{{description}}</td>
+    <td>${{totalPrice}}</td>
+  </tr>
+  {{/orderDetails}}
+</table>

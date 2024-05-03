@@ -1,0 +1,92 @@
+@import '../../../style/vars.less';
+
+.prd-card {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  .prd-thumb {
+    position: relative;
+    img {
+      border-top-left-radius: 0.5em;
+      border-top-right-radius: 0.5em;
+      height: 18em;
+      width: 100%;
+      object-fit: cover;
+      @media screen and (max-width: @tablet-screen) {
+        height: 13em;
+      }
+    }
+    .bookmark-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      padding: 4px 8px;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 100;
+      &:hover {
+        .icon {
+          color: @theme-color;
+        }
+      }
+      .icon-active {
+        color: @theme-color;
+      }
+    }
+  }
+  &:hover .prd-info {
+    color: @white;
+    background-color: @primary-color;
+    a {
+      color: @white;
+    }
+  }
+  .prd-info {
+    font-family: @primary-font-bold;
+    color: @gray;
+    background-color: @light-card;
+    padding: 1em;
+    text-align: center;
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    font-weight: 600;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    a {
+      color: @black;
+    }
+  }
+  .label-wrapper {
+    position: absolute;
+    right: auto;
+    left: 0px;
+    top: 10px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    .label-wrapper-price {
+      color: #2d2529 !important;
+      line-height: 2em;
+      background-color: @secondary-color;
+      width: auto;
+      padding: 0.2em 2em;
+      clip-path: polygon(0px 0px, 0px 100%, 100% 100%, 90% 50%, 100% 0);
+      font-size: 12px;
+      font-weight: 600;
+      margin: 5px 0;
+    }
+    .label-wrapper-digital {
+      color: @white!important;
+      line-height: 2em;
+      background-color: @primary-color;
+      width: auto;
+      padding: 0.2em 2em;
+      clip-path: polygon(0px 0px, 0px 100%, 100% 100%, 90% 50%, 100% 0);
+      font-size: 12px;
+      font-weight: 600;
+      margin: 5px 0;
+    }
+  }
+}

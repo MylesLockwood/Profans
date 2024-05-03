@@ -1,0 +1,43 @@
+@import '../node_modules/antd/dist/antd.less';
+@import './videojs.less';
+@import './vars.less';
+@import './default.less';
+@import './global.less';
+@import './responsive.less';
+@import './dark-mode.less';
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: @white;
+  color: @black;
+  font-size: 14px;
+  line-height: 23px;
+  font-family: @primary-font, @secondary-font, sans-serif !important;
+}
+
+button {
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.flex-row-space-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

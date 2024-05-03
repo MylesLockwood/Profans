@@ -1,0 +1,746 @@
+@import '../../../style/vars.less';
+
+.feed-card {
+  margin-bottom: 25px;
+  border-bottom: 0.5px solid @light-grey;
+
+  .feed-top {
+    padding: 0 5px;
+    display: flex;
+    justify-content: space-between;
+
+    .feed-top-left {
+      cursor: pointer;
+      display: flex;
+      position: relative;
+
+      img {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        border: 1px solid @primary-color;
+      }
+
+      .feed-name {
+        padding: 0 10px;
+
+        h4 {
+          font-size: 14px;
+          margin: 0;
+          text-transform: capitalize;
+          display: inline-flex;
+          align-items: center;
+
+          .anticon {
+            margin-left: 2px;
+            font-size: 16px;
+            color: @primary-color;
+          }
+        }
+
+        h5 {
+          text-transform: lowercase;
+          font-size: 13px;
+          color: @gray
+        }
+      }
+
+      .online-status {
+        width: 8px;
+        height: 8px;
+        background-color: @gray;
+        border-radius: 50%;
+        position: absolute;
+        bottom: 12px;
+        left: 35px;
+
+        &.active {
+          animation-name: twinkle;
+          animation-duration: 2s;
+          animation-timing-function: ease-out;
+          animation-delay: 0s;
+          animation-direction: alternate;
+          animation-iteration-count: infinite;
+          animation-fill-mode: none;
+          animation-play-state: running;
+          background-color: @success-color;
+        }
+      }
+    }
+
+    .feed-top-right {
+      .feed-time {
+        font-size: 11px;
+        color: @gray;
+        margin: 0 10px;
+        white-space: nowrap;
+        text-align: right;
+      }
+
+      .dropdown-options {
+        font-size: 14px;
+        color: @gray;
+      }
+    }
+  }
+
+  .feed-container {
+    .lock-content {
+      position: relative;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      border-radius: 3px;
+      transition: all 0.5s ease-in-out;
+      overflow: hidden;
+
+      .feed-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(/static/leaf.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      .count-media {
+        position: absolute;
+        bottom: 2px;
+        padding: 2px 5px;
+        font-size: 11px;
+        color: @light-color;
+        text-align: center;
+      }
+
+      .lock-middle {
+        position: relative;
+        width: 100%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .anticon {
+          font-size: 32px;
+          color: @white;
+        }
+
+        .ant-btn {
+          &.secondary {
+            border-radius: 25px;
+            font-size: 14px;
+            font-family: @primary-font-bold;
+            width: auto;
+          }
+
+          &.ant-btn-link {
+            font-size: 12px;
+            color: @white;
+            .anticon {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+
+      p {
+        position: relative;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: 600;
+        color: @white;
+        padding: 5px 15px;
+        border: 1px solid;
+        border-radius: 25px;
+        font-weight: 600;
+        background-color: @secondary-color;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+
+      @media screen and (max-width: @mobile-screen) {
+        height: 215px;
+      }
+    }
+
+    .feed-text {
+      padding: 5px;
+      font-size: 12px;
+      color: @dark-grey;
+      white-space: pre-line;
+      &::first-letter {
+        text-transform: capitalize;
+      }
+    }
+    .feed-tagline {
+      padding: 0 5px;
+    }
+  }
+
+  .feed-actions {
+    display: flex;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+
+    .action-item {
+      width: 100%;
+      padding: 5px 10px;
+      text-align: left;
+      align-items: center;
+      display: flex;
+
+      .action-ico {
+        cursor: pointer;
+        padding: 5px 10px;
+
+        .anticon {
+          font-size: 20px;
+        }
+
+        &:hover, &.active {
+          color: @theme-color
+        }
+      }
+
+      &:last-child {
+        text-align: right;
+        justify-content: flex-end;
+        width: 25%;
+      }
+
+      .sc-bdVaJa {
+        padding: 5px;
+        margin-top: -3px;
+        .ewcqji {
+          margin: 0 5px;
+        }
+        .sc-htpNat.cgeQjm {
+          svg {
+            margin: 0
+          }
+          span {
+            display: none;
+          }
+        }
+      }
+
+    }
+
+  }
+
+  .videojs-player {
+    .video-js {
+      width: 100%;
+      border-radius: 3px;
+      overflow: hidden;
+
+      .vjs-poster {
+        border-radius: 3px;
+        border: none;
+        @media screen and (max-width: @mobile-screen) {
+          background-size: cover;
+        }
+      }
+    }
+  }
+}
+
+.f-upload-list {
+  display: flex;
+  width: 100%;
+  overflow: auto;
+  flex-wrap: wrap;
+
+  .f-upload-item {
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 5px;
+    margin: 5px;
+    background-color: @light-blue;
+    position: relative;
+
+    .f-remove {
+      position: absolute;
+      right: 5px;
+      top: 5px
+    }
+
+    .f-upload-thumb {
+      height: 100px;
+      width: 120px;
+
+      .f-thumb-vid {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: @white;
+
+        .anticon {
+          color: @theme-color;
+          font-size: 22px;
+        }
+      }
+    }
+
+    .f-upload-name {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 120px;
+    }
+
+    .f-upload-size {
+      font-size: 8px;
+    }
+  }
+
+  .add-more {
+    display: flex;
+    height: 130px;
+    align-self: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: @light-grey;
+    border-radius: 5px;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    cursor: pointer;
+
+    .ant-upload {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+  }
+}
+
+.feed-slider {
+  position: relative;
+
+  .ant-carousel {
+    border-radius: 5px;
+
+    .slick-slide {
+      height: auto;
+
+      &>div {
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        a,
+        img {
+          height: 100%;
+        }
+      }
+
+      // @media screen and (max-width: @tablet-screen) {
+      //   height: 300px;
+      // }
+
+      // @media screen and (max-width: @mobile-screen) {
+      //   height: 215px;
+      // }
+    }
+  }
+
+  .count-media {
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .count-media-item {
+      background: rgba(121, 121, 121, .4);
+      color: @white;
+      padding: 5px;
+      border-radius: 5px;
+      font-size: 10px;
+      z-index: 9;
+    }
+  }
+
+  .proccessing {
+    background-image: url('/static/leaf.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 400px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+
+    @media screen and (max-width: @tablet-screen) {
+      height: 300px;
+    }
+
+    @media screen and (max-width: @mobile-screen) {
+      height: 215px;
+    }
+  }
+}
+
+.feed-input {
+  &:focus {
+    background-color: @placeholder-input;
+  }
+}
+
+.ant-input-number-input-wrap input {
+  height: 30px;
+}
+
+.input-f-desc {
+  position: relative;
+  margin-bottom: 10px;
+
+  .grp-emotions {
+    z-index: 1;
+    position: absolute;
+    bottom: 5px;
+    top: unset;
+    right: 5px;
+  }
+
+  .grp-colors {
+    z-index: 9;
+    position: absolute;
+    bottom: 5px;
+    right: 35px;
+
+    .anticon {
+      font-size: 22px;
+      color: @theme-color;
+    }
+
+    .colors {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      display: none;
+    }
+
+    &:hover {
+      .colors {
+        display: block;
+      }
+    }
+  }
+}
+
+.poll-form {
+  width: 100%;
+  max-width: 320px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: @light-blue;
+
+  .poll-top {
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+      cursor: pointer;
+
+      &:hover {
+        color: @primary-color;
+      }
+    }
+
+    a {
+      color: @white;
+      padding: 1px 7px;
+      border-radius: 50%;
+      background-color: @theme-color;
+    }
+  }
+
+  .poll-input {
+    margin-bottom: 10px;
+  }
+}
+
+.feed-poll {
+  display: flex;
+  background-color: @aliceblue;
+  padding: 5px;
+  border-radius: 3px;
+  justify-content: space-between;
+  cursor: pointer;
+  margin: 3px 0;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.total-vote {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 10px;
+  color: @gray;
+}
+
+.story-switch-type {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 660px;
+  margin: auto;
+  padding: 10px;
+
+  .type-item {
+    width: calc(50% - 20px);
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 100px 5px;
+    border-radius: 8px;
+    color: @white;
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+    cursor: pointer;
+    opacity: 0.8;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.left {
+      background: linear-gradient(90deg, @theme-color 10%, @primary-color 50%, @theme-color 90%);
+    }
+
+    &.right {
+      background: linear-gradient(180deg, @orange-color 10%, @secondary-color 50%, @orange-color 90%);
+    }
+
+    &.middle {
+      margin: auto;
+      background: linear-gradient(180deg, @info-color 10%, @processing-color 50%, @info-color 90%);
+    }
+
+    span {
+      padding: 5px 10px;
+      font-size: 40px;
+      color: @white;
+
+      .anticon {
+        font-size: 40px;
+        color: @white;
+      }
+    }
+
+    @media screen and (max-width: @mobile-screen) {
+      padding: 50px 5px;
+    }
+  }
+}
+
+.submit-btns {
+  justify-content: space-around;
+  margin: 10px auto;
+  width: 200px;
+  display: flex;
+}
+
+
+.search-post-bar {
+  display: flex;
+  width: 100%;
+  margin: 0 0 5px;
+  padding: 0 10px;
+  justify-content: space-between;
+  align-items: center;
+
+  .ant-picker.ant-picker-range {
+    height: 40px;
+    position: absolute;
+    left: 0;
+    width: calc(100% - 180px);
+  }
+
+  .ant-input-group-wrapper.ant-input-search {
+    position: absolute;
+    left: 0;
+    width: calc(100% - 180px);
+
+    input {
+      height: 30px;
+    }
+
+    .ant-input-search-button {
+      height: 40px;
+    }
+  }
+
+  .grid-btns {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    a {
+      margin: 0 5px;
+      padding: 0 5px;
+      font-size: 20px;
+      color: @dark-grey;
+      border-radius: 3px;
+
+      &.active {
+        color: @primary-color;
+      }
+    }
+  }
+
+  @media screen and (max-width: @mobile-screen) {
+    .ant-picker.ant-picker-range {
+      width: calc(100% - 140px);
+    }
+
+    .ant-input-group-wrapper.ant-input-search {
+      width: calc(100% - 140px);
+    }
+
+    .grid-btns {
+      a {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.grid-view {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+
+  .feed-grid-card {
+    width: 33.33%;
+    padding: 0 5px;
+    margin-bottom: 10px;
+    overflow: hidden;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    .card-thumb {
+      position: relative;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      border-radius: 5px;
+      cursor: pointer;
+
+      .card-middle {
+        position: relative;
+        width: 100%;
+        display: inline-flex;
+        justify-content: center;
+        flex-direction: column;
+
+        .anticon {
+          font-size: 32px;
+          color: @white;
+        }
+
+        .ant-btn {
+          font-size: 11px;
+          font-family: @primary-font-bold;
+        }
+      }
+
+      .card-bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px;
+
+        .count-media-item {
+          background: rgba(121, 121, 121, .4);
+          color: @white;
+          padding: 5px;
+          border-radius: 5px;
+          font-size: 10px;
+          z-index: 999;
+        }
+
+        .stats {
+          background: rgba(121, 121, 121, .4);
+          padding: 5px;
+          border-radius: 5px;
+          font-size: 10px;
+          z-index: 999;
+          display: flex;
+
+          a {
+            margin-right: 10px;
+            color: @white;
+          }
+        }
+      }
+    }
+
+    .card-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: @light-grey;
+      background-image: url(/static/leaf.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  @media screen and (max-width: @tablet-screen) {
+    .feed-grid-card {
+      .card-thumb {
+        height: 325px;
+      }
+    }
+  }
+
+  @media screen and (max-width: @mobile-screen) {
+    .feed-grid-card {
+      width: 50%;
+
+      .card-thumb {
+        height: 250px;
+      }
+    }
+  }
+}

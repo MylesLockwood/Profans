@@ -1,0 +1,103 @@
+@import '../../../style/default.less';
+
+#subscriber {
+  min-height: 400px;
+  width: 100%;
+  video {
+    height: 400px;
+    width: 100%;
+  }
+  @media screen and (max-width: @mobile-screen) {
+    min-height: 300px;
+    video {
+      height: 300px;
+    }
+  }
+}
+
+#publisher {
+  min-height:400px;
+  @media screen and (max-width: @mobile-screen) {
+    min-height: 300px;
+  }
+}
+
+#video-container {
+  video {
+    width: 100%;
+  }
+}
+
+.conversation-users {
+  .users {
+    height: 435px;
+    overflow-y: scroll;
+    width: 100%;
+    .user {
+      margin: 0 0 5px;
+      padding: 5px;
+      border-radius: 5px;
+      background-color: @white;
+      text-transform: capitalize;
+      img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.private-call-card {
+  padding: 5px;
+  margin-bottom: 10px;
+  position: relative;
+  border-bottom: 1px solid @light-grey;
+  .user-info {
+    display: flex;
+    img {
+      width: 35px;
+      height: 35px;
+      padding: 2px;
+      border: 1px solid @primary-color;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 5px;
+    }
+    .user-name {
+      display: flex;
+      flex-direction: column;
+      font-size: 12px;
+      small {
+        font-size: 10px;
+        color: @grey-color;
+      }
+    }
+  }
+  .user-note {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: @dark-grey;
+    font-size: 11px;
+    margin: 5px 0 0;
+  }
+  .date-time {
+    font-size: 9px;
+    text-align: right;
+    color: @gray;
+  }
+  .price {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: @theme-color;
+    color: @white;
+    padding: 2px 5px;
+    font-size: 10px;
+    border-radius: 3px;
+    clip-path: polygon(0px 0px, 0px 100%, 100% 100%, 95% 50%, 100% 0);
+  }
+}

@@ -1,0 +1,45 @@
+@import '../../../style/vars.less';
+.message-list {
+  height: 100%;
+  overflow: auto;
+  width: 100%;
+}
+.message-list-container {
+  padding: 10px;
+}
+.sub-text {
+  color: @secondary-color;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 50px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  background: @black;
+  opacity: 0.5;
+}
+.mess-recipient {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: @light-card;
+  position: absolute;
+  top: 0;
+  left: 0;
+  img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin: 9px 12px 0 9px;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .sub-text {
+    font-size: 14px;
+  }
+}

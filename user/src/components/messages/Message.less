@@ -1,0 +1,69 @@
+@import '../../../style/vars.less';
+.message {
+  display: flex;
+  flex-direction: column;
+  .bubble-container {
+    font-size: 14px;
+    display: flex;
+    .bubble {
+      margin: 5px 0px;
+      background: @theme-color;
+      padding: 10px 15px;
+      border-radius: 10px;
+      max-width: 75%;
+      border-radius: 5px;
+      color: @white;
+      .anticon-ellipsis {
+        transform: rotate(90deg);
+        font-size: 12px;
+      }
+    }
+    .avatar {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      margin: 6px 8px 0 0;
+    }
+  }
+  .timestamp {
+    display: flex;
+    justify-content: flex-start;
+    color: @grey-color;
+    font-weight: 600;
+    font-size: 8px;
+    margin: 5px 0px;
+  }
+  &.mine {
+    .timestamp {
+      justify-content: flex-end;
+    }
+    .bubble-container {
+      justify-content: flex-end;
+      .bubble {
+        background: @message-color;
+        max-width: 75%;
+        color: @black;
+      }
+      .avatar {
+        margin: 6px 0 0 8px;
+      }
+      &.owner {
+        .bubble {
+          background: @theme-color;
+          color: @white;
+        }
+      }
+    }
+  }
+}
+
+.message-stream {
+  .message {
+    .bubble-container {
+      justify-content: flex-start!important;
+    }
+    .timestamp {
+      justify-content: flex-start!important;
+    }
+  }
+}
