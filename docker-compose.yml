@@ -1,0 +1,92 @@
+version: "3.8"
+
+services:
+  admin:
+    build:
+      context: ./admin
+      dockerfile: Dockerfile
+    command: ["npm", "run", "start"]
+    env_file:
+      - .env
+    volumes:
+      - ./admin/src:/app/admin/src
+      - /app/node_modules
+    ports:
+      - "8082:8082"
+    depends_on:
+      - mongodb 
+      - redis 
+    networks:
+      - backend
+      - public
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    command: ["npm", "run", "start"]
+    env_file:
+      - .env
+    volumes:
+      - ./api/src:/app/api/src
+      - /app/node_modules
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongodb 
+      - redis 
+    networks:
+      - backend
+      - public
+
+  user:
+    build:
+      context: ./user
+      dockerfile: Dockerfile
+    command: ["npm", "run", "start"]
+    env_file:
+      - .env
+    volumes:
+      - ./user/src:/app/user/src
+      - /app/node_modules
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mongodb 
+      - redis 
+    networks:
+      - backend
+      - public
+
+  mongodb:
+    image: mongo:6-jammy
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin-user
+      - MONGO_INITDB_ROOT_PASSWORD=admin-password
+      - MONGO_DB_USERNAME=admin-user1
+      - MONGO_DB_PASSWORD=admin-password1
+      - MONGO_DB=profans
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - backend
+
+  redis:
+    image: redis:7.0.15
+    volumes:
+        - redis_data:/data
+    ports:
+        - "6379"
+    networks:
+        - backend
+
+volumes:
+  mongo_data:
+  redis_data:
+
+networks:
+    public:
+        driver: bridge
+    backend:

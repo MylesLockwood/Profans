@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "types": [
+      // ... your other types
+      "node"
+    ],
     "module": "commonjs",
     "declaration": true,
     "removeComments": true,

@@ -244,7 +244,7 @@ export class StreamService {
     if (!conversation) throw new EntityNotFoundException();
     const recipient = conversation.recipients.find((r) => `${r.sourceId}` === `${user._id}`);
     if (!recipient) throw new ForbiddenException();
-    const stream = conversation.streamId && await this.streamModel.findOne(conversation.streamId);
+    const stream = conversation.streamId && await this.streamModel.findOne({ _id: conversation.streamId });
     if (!stream) throw new EntityNotFoundException();
     await Promise.all([
       stream.remove(),
