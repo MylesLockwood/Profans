@@ -2,6 +2,16 @@ This is a base probject with next + antd
 
 ## Getting Started
 
+
+
+## local bulid is working. use nvm. /// dockerfile not working ????? 
+
+nvm use 13
+npm install --force
+npm run dev or npm run build
+
+
+
 First, run the development server:
 
 ```bash
