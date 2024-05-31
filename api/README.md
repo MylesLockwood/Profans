@@ -2,34 +2,29 @@
 
 API for xfans project.
 
-## Installation
+## Installation 
+
+### use node 13 (using node version manager - nvm use 13)
 
 ```bash
-$ yarn
+$ npm install 
 ```
+
+### add mongo URI to .env
+
+### run redis server (sudo service redis-server start)
 
 ## Running the app
 
 ```bash
-# development
-$ yarn start
-
 # watch mode
-$ yarn start:dev
-
-# production mode
-$ yarn start:prod
+$ npm start:dev
 ```
 
-## Test
+### Migration
 
 ```bash
-# unit tests
-$ yarn test
-
-# e2e tests
-$ yarn test:e2e
-
-# test coverage
-$ yarn test:cov
+$ node migrate.js
 ```
+
+
